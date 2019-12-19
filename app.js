@@ -9,9 +9,15 @@ window.addEventListener('load', ()=> {
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
-      const api = ``;
+      const api = `https://api.darksky.net/forecast/7c2d38468d046eff1187a97d9f41b25b/${lat},${long}`;
+    });
+
+  fetch(api)
+    .then(response =>{
+        return response.json();
     })
-  } else {
-    h1.textContent = "This feature needs geolocation to work. :)"
+    .then(data =>{
+      console.log(data);
+    });
   }
-})
+});
