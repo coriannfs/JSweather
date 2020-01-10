@@ -7,6 +7,9 @@ window.addEventListener('load', ()=> {
   let tempDeg = document.querySelector('.degree');
   let locTimezone = document.querySelector('.timezone');
   let tempSpan = document.querySelector('.h2temp span');
+  let locTime = document.querySelector('.time');
+  let today = new Date();
+  let time = today.getHours() + ":" + today.getMinutes();
 
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -27,6 +30,8 @@ window.addEventListener('load', ()=> {
           tempDeg.textContent = Math.floor(temperature);
           tempDesc.textContent = summary;
           locTimezone.textContent = data.timezone;
+          locTime.textContent = time;
+
 
           //Set icon
           setIcons(icon, document.querySelector('.icon'));
